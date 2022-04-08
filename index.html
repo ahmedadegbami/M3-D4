@@ -42,13 +42,13 @@
   <body>
     <div class="container">
       <h1>BOOKS</h1>
-      <div class="card m-5" style="width: 18rem">
+      <div class="card m-5">
         <div class="card-header">Selected BOOKS</div>
         <ul class="list-group list-group-flush"></ul>
       </div>
 
-      <input type="text" oninput="searchBar()" />
-      <div class="row myGrid"></div>
+      <input type="text" oninput="searchBarQuery(event)" />
+      <div class="row"></div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
