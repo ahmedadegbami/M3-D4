@@ -6,21 +6,20 @@ const loadPage = () => {
     let row = document.querySelector(".row")
     
     
-    books.forEach(eachBook => {
-      let col = document.createElement("div")
-      col.classList.add("col-3", "mb-2")
-      col.innerHTML = `<div class="card" >
+    
+      row.innerHTML = books.map(eachBook =>
+      
+      `<div class="col-3">
+      <div class="card" >
       <img src=${eachBook.img} class="card-img-top" alt="..." />
       <div class="card-body">
       <h5 class="card-title">${eachBook.title}</h5>
-      <p class="card-text">
-      Some quick example text to build on the card title and make up the
-      bulk of the card's content.
-      </p>
       <a href="#" class="btn btn-primary button" onclick="addSelected(event)">ADD TO CARD</a>
       <button type="button" class="btn btn-dark" onclick="skipItem(event)">Skip ></button>
-      </div>`
-      row.appendChild(col)  });
+      </div>
+      </div>
+      </div>`).join("")
+      
     })
     .catch(error => console.log(error))
     }
@@ -45,7 +44,7 @@ const loadPage = () => {
     
   }
 
- const searchBarQuery = (event) => {
+  const searchBarQuery = (event) => {
     const searchQuery = event.target.value
     fetch("https://striveschool-api.herokuapp.com/books", { method: "GET" })
         .then(response => response.json())
@@ -72,7 +71,6 @@ const loadPage = () => {
 
   })
 }
-  
   
   
   window.onload = () => {
